@@ -25,13 +25,15 @@ It enables the administrator who is logged in to maintain the menus by using the
 
 3. `PHP` script that uses an array to generate search suggestions based on user input, and the use of `AJAX(Asynchronous JavaScript and XML)` to dynamically update the search results on the page without the need for a full page refresh enables a more seamless and responsive user experience.  
 
-4. The use of `PHP CRUD APIs` allows Admin to do CRUD operations on Users through `JSON` with `Postman`. Finally, it uses `JSON` to return a response to the client-side, indicating whether the user data was found/inserted/updated/deleted successfully or not. The data is also displayed in an HTML table on the web page for better visualization.  
+4. Implemented `phpMyAdmin`, which allows restaurant Admin to login and CRUD product menu data, and allows Customers to login and CRUD cart data and order data.
 
-5. `JavaScript` is used to add interactivity to a website's header: it uses the `DOM API` to toggle the visibility of a navigation menu and close a form container, based on user input.  
+5. The use of `PHP CRUD APIs` allows Admin to do CRUD operations on Users through `JSON` with `Postman`. Finally, it uses `JSON` to return a response to the client-side, indicating whether the user data was found/inserted/updated/deleted successfully or not. The data is also displayed in an HTML table on the web page for better visualization.  
 
-6. It's a website that's compatible with mobile devices. It is developed with mobile users in mind and as such very responsive which gives mobile users the same sleek GUI and function as the web users.  
+6. `JavaScript` is used to add interactivity to a website's header: it uses the `DOM API` to toggle the visibility of a navigation menu and close a form container, based on user input.  
 
-7. This system can be used for any restaurant for its online services.
+7. It's a website that's compatible with mobile devices. It is developed with mobile users in mind and as such very responsive which gives mobile users the same sleek GUI and function as the web users.  
+
+8. This system can be used for any restaurant for its online services.
 
 ## Instruction
 
