@@ -25,15 +25,16 @@ It enables the administrator who is logged in to maintain the menus by using the
 
 3. `PHP` script that uses an array to generate search suggestions based on user input, and the use of `AJAX(Asynchronous JavaScript and XML)` to dynamically update the search results on the page without the need for a full page refresh enables a more seamless and responsive user experience.  
 
-4. Implemented `phpMyAdmin`, which allows restaurant Admin to login and CRUD product menu data, and allows Customers to login and CRUD cart data and order data.
+4. User authentication, including user verification using `regular expressions`, user authorization based on identity & role, and session management using `PHP sessions` which enables maintaining user login state across multiple pages and implementing different headers to display different menu options or other page elements based on the type of user that is logged in.
 
-5. The use of `PHP CRUD APIs` allows Admin to do CRUD operations on Users through `JSON` with `Postman`. Finally, it uses `JSON` to return a response to the client-side, indicating whether the user data was found/inserted/updated/deleted successfully or not. The data is also displayed in an HTML table on the web page for better visualization.  
+5. Implemented `phpMyAdmin`, which allows restaurant Admin to login and CRUD product menu data, and allows Customers to login and CRUD cart data and order data.
 
-6. `JavaScript` is used to add interactivity to a website's header: it uses the `DOM API` to toggle the visibility of a navigation menu and close a form container, based on user input.  
+6. The use of `PHP CRUD APIs` allows Admin to do CRUD operations on Users through `JSON` with `Postman`. Finally, it uses `JSON` to return a response to the client-side, indicating whether the user data was found/inserted/updated/deleted successfully or not. The data is also displayed in an HTML table on the web page for better visualization.  
 
-7. It's a website that's compatible with mobile devices. It is developed with mobile users in mind and as such very responsive which gives mobile users the same sleek GUI and function as the web users.  
+7. `JavaScript` is used to add interactivity to a website's header: it uses the `DOM API` to toggle the visibility of a navigation menu and close a form container, based on user input.  
 
-8. This system can be used for any restaurant for its online services.
+8. It's a website that's compatible with mobile devices. It is developed with mobile users in mind and as such very responsive which gives mobile users the same sleek GUI and function as the web users.  
+
 
 ## Instruction
 
@@ -51,4 +52,4 @@ It enables the administrator who is logged in to maintain the menus by using the
 
 7. Put localhost/ into browser, it will direct to login page
 
-8. Register for an account(admin account can only be changed in mysql database by changing isAdmin from 0 to 1, 1 is Admin)
+8. Register for an account(admin account can be changed in mysql database by changing isAdmin from 0 to 1, 1 is Admin)
