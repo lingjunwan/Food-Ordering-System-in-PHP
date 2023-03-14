@@ -1,5 +1,14 @@
 <?php include 'header.php'; ?>
 <?php
+// Initialize the session
+session_start();
+
+//Check if the user is already logged in, if yes then redirect him to welcome page
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+  header("location: products.php");
+  exit;
+}
+
 // Include config file
 require_once "config.php";
 
@@ -8,6 +17,7 @@ $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 
 // Processing form data when form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   // Validate username
@@ -18,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     // Prepare a select statement
     $sql = "SELECT id FROM users WHERE username = ?";
-
+    //built-in function that prepares an SQL statement for execution
     if ($stmt = mysqli_prepare($conn, $sql)) {
       // Bind variables to the prepared statement as parameters
       mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -30,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (mysqli_stmt_execute($stmt)) {
         /* store result */
         mysqli_stmt_store_result($stmt);
-        //to check if the number of rows returned by the executed SQL statement is equal to 1
+        //checks if the number of rows returned by the prepared statement is equal to 1.
         if (mysqli_stmt_num_rows($stmt) == 1) {
           $username_err = "This username is already taken.";
         } else {
@@ -49,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty(trim($_POST["password"]))) {
     $password_err = "Please enter a password.";
   } elseif (strlen(trim($_POST["password"])) < 6) {
-    $password_err = "Password must have at least 6 characters.";
+    $password_err = "Password must have atleast 6 characters.";
   } else {
     $password = trim($_POST["password"]);
   }
@@ -105,7 +115,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
   <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/style1.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
   <style>
     body {
       font: 14px sans-serif;
@@ -116,18 +128,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       text-align: center;
       font: bolder
     }
-
-    p {
-      font-family: cursive;
-      color: lightblue;
-    }
   </style>
 </head>
 
 <body>
   <div class="background">
     <section class="wrapper">
-      <h2>Sign Up</h2>
+      <h2>Sign Up</h2></br></br>
       <p>Please fill this form to create an account.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
@@ -158,13 +165,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </span>
         </div>
         <div class="form-group">
-          <input type="submit" class="btn btn-primary" value="Submit">
+          <input type="submit" class="btn btn-success" value="Submit">
           <input type="reset" class="btn btn-outline-warning" value="Reset">
+          <label></br>Already have an account? </label>
+          <button type="button" class="btn btn-primary" onclick="window.location.href='login.php'">Login here</button>
         </div>
-        <p>Already have an account? <a href="login.php">Login here</a></p>
+
       </form>
     </section>
   </div>
+  <?php
+  include "footer.php"
+    ?>
 </body>
 
 </html>

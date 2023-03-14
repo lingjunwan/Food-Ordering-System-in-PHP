@@ -1,4 +1,5 @@
 <?php
+
 // Initialize the session
 session_start();
 
@@ -48,9 +49,12 @@ if (isset($_POST['add_to_cart'])) {
 
   <!-- font awesome cdn link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <!-- custom css file link  -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style1.css">
+
 </head>
 
 <body>

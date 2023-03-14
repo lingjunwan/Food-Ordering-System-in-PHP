@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($new_password_err) && empty($confirm_password_err)) {
     // Prepare an update statement
     $sql = "UPDATE users SET password = ? WHERE id = ?";
-
+    //use the mysqli_prepare() function to prepare a SQL statement for execution
     if ($stmt = mysqli_prepare($conn, $sql)) {
       // Bind variables to the prepared statement as parameters
       // Bind the new password and the current user's ID to the prepared statement that updates the user's password
@@ -81,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reset Password</title>
   <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/style1.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
@@ -125,11 +126,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-primary" value="Submit">
-          <div class="btn btn-link"><a href="admin.php">Cancel</a></div>
+          <button type="button" class="btn btn-primary" onclick="window.location.href='admin.php'">Cancel</button>
         </div>
       </form>
     </section>
   </div>
 </body>
+<?php
+include "footer.php"
+  ?>
 
 </html>

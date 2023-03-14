@@ -52,14 +52,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check if username exists, if yes then verify password
         if (mysqli_stmt_num_rows($stmt) == 1) {
-          // Bind result variables:binds the output of the SQL query to the provided variables, so that the values can be accessed later
+          // Bind result variables
           mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $isAdmin);
           if (mysqli_stmt_fetch($stmt)) {
             if (password_verify($password, $hashed_password)) {
-              // If the password provided matches the hashed password in the database, start a new session in order to store the user's authentication information on the server side
+              // Password is correct, so start a new session
               session_start();
 
-              // Store the necessary data in session variables to be used later
+              // Store data in session variables
               $_SESSION["loggedin"] = true;
               $_SESSION["id"] = $id;
               $_SESSION["username"] = $username;
@@ -104,7 +104,9 @@ mysqli_close($conn);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/style1.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
   <style>
     body {
       font: 14px sans-serif;
@@ -137,8 +139,8 @@ mysqli_close($conn);
 
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group">
-          <label>Username</label>
-          <input type="text" name="username"
+          <label>Username <span id="txtHint"></span></label>
+          <input type="text" id="txt1" onkeyup="showHint(this.value)" name="username"
             class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
             value="<?php echo $username; ?>">
           <span class="invalid-feedback">
@@ -155,11 +157,33 @@ mysqli_close($conn);
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-primary" value="Login">
-        </div><br><br>
-        <p>Don't have an account? <a href="register.php">Sign up</a></p>
+        </div>
+        <div class="form-group">
+          <label>Don't have an account? </label>
+          <button type="button" class="btn btn-primary" onclick="window.location.href='register.php'">Sign up</button>
+
+        </div>
       </form>
     </section>
   </div>
+  <script>
+    function showHint(str) {
+      if (str.length == 0) {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+      }
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      };
+      xhttp.open("GET", "gethint.php?q=" + str);
+      xhttp.send();
+    }
+  </script>
 </body>
+<?php
+include "footer.php"
+  ?>
+
 
 </html>
