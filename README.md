@@ -23,7 +23,7 @@ It enables the administrator who is logged in to maintain the menus by using the
 
 2. `CSS` and `Bootstrap` are used to enhance the UI of the website.  
 
-3. `PHP` script that uses an array to generate search suggestions based on user input, and the use of `AJAX(Asynchronous JavaScript and XML)` to dynamically update the search results on the page without the need for a full page refresh enables a more seamless and responsive user experience.  
+3. `PHP` script that uses an array to generate search suggestions based on user input, and the use of `AJAX`(Asynchronous JavaScript and XML) to dynamically update the search results on the page without the need for a full page refresh enables a more seamless and responsive user experience.  
 
 4. User authentication, including user verification using `regular expressions`, user authorization based on identity & role, and session management using `PHP sessions` which enables maintaining user login state across multiple pages and implementing different headers to display different menu options or other page elements based on the type of user that is logged in.
 
