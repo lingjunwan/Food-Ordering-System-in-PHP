@@ -51,9 +51,10 @@ if (isset($_GET['delete_all'])) {
 
   <!-- font awesome cdn link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- custom css file link  -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style1.css">
 
 </head>
 
@@ -61,7 +62,7 @@ if (isset($_GET['delete_all'])) {
 
   <?php include 'headerCustomer.php'; ?>
 
-  <div class="container">
+  <div class="container" style="min-height: 500px ;">
 
     <section class="shopping-cart">
 
@@ -117,7 +118,7 @@ if (isset($_GET['delete_all'])) {
           }
           ;
           ?>
-          <tr class="table-bottom">
+          <tr class="table-bottom" >
             <td><a href="products.php" class="option-btn" style="margin-top: 0;">continue shopping</a></td>
             <td colspan="3">grand total</td>
             <td>$
@@ -138,7 +139,9 @@ if (isset($_GET['delete_all'])) {
     </section>
 
   </div>
-
+  <?php
+include "footer.php" 
+?>
   <!-- custom js file link  -->
   <script src="js/script.js"></script>
 

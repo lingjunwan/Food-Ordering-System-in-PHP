@@ -3,15 +3,13 @@
   <div class="flex">
 
     <a href="#" class="logo"><img src="logo.png" alt="Mission Eats"></a>
-
-    <?php
-    $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die('query failed');
-    $row_count = mysqli_num_rows($select_rows);
-    ?>
-
+    <h2 style="color: orange">Hi, <b>
+        <?php echo htmlspecialchars($_SESSION["username"]); ?>
+      </b>, Welcome to our site!</h2>
     <div id="menu-btn" class="fas fa-bars"></div>
 
     <nav class="navbar">
+
       <a href="admin.php">Manage products</a>
       <a href="reset-password.php">Reset Password</a>
       <a href="logout.php">Sign Out</a>

@@ -3,6 +3,9 @@
   <div class="flex">
 
     <a href="#" class="logo"><img src="logo.png" alt="Mission Eats"></a>
+    <h4 style="color: orange">Hi, <b>
+        <?php echo htmlspecialchars($_SESSION["username"]); ?>
+      </b>, Welcome!</h4>
 
     <?php
     $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die('query failed');
