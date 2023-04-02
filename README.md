@@ -1,4 +1,6 @@
 # Food-Ordering-System-in-PHP
+
+## Project Overview  
 ### Project MissionEats is a web-based online food ordering System where anyone may register and place orders.  
 It enables the administrator who is logged in to maintain the menus by using the CRUD operation and shows clients a list of the available food products together with their prices so that Customer may place an order after logged in to select what they want from the menu.  
 
