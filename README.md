@@ -52,6 +52,6 @@ It enables the administrator who is logged in to maintain the menus by using the
 
 6. Import 4 sql files into data base(cart.sql, order.sql, products.sql, users.sql)
 
-7. Put localhost/ into browser, it will direct to login page
+7. Put [localhost/MissionEats-main/login.php](http://localhost/MissionEats-main/login.php) into browser, it will direct to login page
 
 8. Register for an account(admin account can be changed in mysql database by changing isAdmin from 0 to 1, 1 is Admin)
